@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useContext, useEffect } from "react";
 import Header from "./components/Header";
 import { Route, Routes } from "react-router-dom";
 import Home from "./pages/Home";
@@ -21,18 +21,22 @@ import 'react-toastify/dist/ReactToastify.css';
 import PlaceOrder from "./pages/PlaceOrder";
 import NewsletterBox from "./components/NewsletterBox";
 import Verify from "./pages/Verify";
+import BannerPrduct from "./components/BannerPrduct";
 
 const App = () => {
+
+  
   return (
     <>
       <ToastContainer position="top-center" />
       <Header />
-      <div className='min-h-[calc(100vh-120px)] pt-24 px-8'>
+      <div className='min-h-[calc(100vh-120px)] pt-8 px-8'>
        <Routes>
+        
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
         <Route path="/register" element={<Register />} />
-        <Route path="/product-category" element={<CategoryProduct />} />
+        <Route path="/product-category/:categoryName" element={<CategoryProduct />} />
         <Route path="/product/:productId" element={<ProductDetails />} />
         <Route path="/cart" element={<Cart />} />
         <Route path="/search" element={<SearchProduct />} />
@@ -45,7 +49,6 @@ const App = () => {
         <Route path="/admin-panel" element={<AdminPanel />} />
         <Route path="/admin-panel/all-products" element={<AllProducts />} />
         <Route path="/admin-panel/all-users" element={<AllUsers />} />
-
        </Routes>
       </div>
             <NewsletterBox />

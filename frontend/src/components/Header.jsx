@@ -7,16 +7,18 @@ import { LuUserCircle2 } from "react-icons/lu";
 import { PiShoppingCartThin } from "react-icons/pi";
 import { ShopContext } from "../context/ShopContext";
 import { FaCircleUser } from "react-icons/fa6";
+import { toast } from "react-toastify";
 
 const Header = () => {
   const [visible, setVisible] = useState(false);
+  const [menuDisplay,setMenuDisplay] = useState(false)
   const { getCartCount, setCartItems, navigate, token, setToken } =
     useContext(ShopContext);
-
   const logout = () => {
     localStorage.removeItem("token");
     setToken("");
     setCartItems({});
+    toast.success("Vous êtes Déconnecté")
     navigate("/login");
   };
   return (
@@ -47,12 +49,28 @@ const Header = () => {
             className="w-5 cursor-pointer sm:hidden"
           />
           <ul className="hidden   sm:flex gap-3 text-sm text-gray-700 ">
-            <NavLink to="/user" className="flex flex-col items-center gap-1">
-              <p className=" hover:rounded-full  px-1 py-1">
-                <FaCircleUser className="text-2xl " />
-              </p>
-              <hr className="w-3/4 border-none h-[4px] bg-slate-700 hidden" />
-            </NavLink>
+            {
+              !token ?  "":
+              <div className="relative  flex justify-center">
+              <NavLink to="/user" className="flex flex-col items-center gap-1" onClick={()=>setMenuDisplay(prev=>!prev)}>
+                <p className=" hover:rounded-full  px-1 py-1">
+                  <FaCircleUser className="text-2xl " />
+                </p>
+                <hr className="w-3/4 border-none h-[4px] bg-slate-700 hidden" />
+              </NavLink>
+              {menuDisplay && (
+                 <div className="absolute bg-white bottom-0 top-11 h-fit p-2 shadow-lg rounded ">
+                 <nav>
+                   <NavLink to="/orders" className="whitespace-nowrap  hover:bg-slate-100">
+                  Mes commandes
+                   </NavLink>
+                 </nav>
+               </div>
+              )}
+             
+              </div>
+            }
+
             <NavLink to="/" className="flex flex-col items-center gap-1">
               <p className=" hover:rounded-full    px-1 py-1">
                 Accueil
@@ -94,7 +112,7 @@ const Header = () => {
               </NavLink>
             ) : (
              <>
-              <NavLink to="/logout" className="flex flex-col items-center gap-1">
+              <NavLink  className="flex flex-col items-center gap-1">
                 <p onClick={logout} className=" rounded-full px-3 py-1 rounded-tl-none uppercase bg-red-300  hover:bg-red-500 ">
                 Déconnexion
                 </p>

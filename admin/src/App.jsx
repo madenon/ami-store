@@ -8,6 +8,7 @@ import Liste from "./pages/Liste";
 import Login from "./components/Login";
 import 'react-toastify/dist/ReactToastify.css';
 import { ToastContainer } from "react-toastify";
+import User from "./pages/User";
 
 export const  backendUrl = import.meta.env.VITE_BACKEND_URL
 export const currency = "FCFA"
@@ -33,6 +34,7 @@ localStorage.setItem('token',token)
                 <Route path="/add" element={<Add token={token} />} /> 
                 <Route path="/list" element={<Liste token={token} />} /> 
                 <Route path="/orders" element={<Orders token={token} />} /> 
+                <Route path="/users" element={<User token={token} />} /> 
               </Routes>
           </div>
         </div>

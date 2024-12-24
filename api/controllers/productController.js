@@ -44,7 +44,7 @@ const uploadProduct = async (req, res) => {
       image: imageUrls,
       date: Date.now(),
     };
-    
+
     const product = new productModel(productData);
     await product.save();
     res.json({
@@ -72,41 +72,57 @@ const getCategoryWiseProduct = async () => {};
 // function for add product
 const getProduct = async (req, res) => {
   try {
-    const products = await productModel.find({})
-     res.json({success:true,error:false, products})
+    const products = await productModel.find({});
+    res.json({ success: true, error: false, products });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.json({ success: false, error: true, message: error.message });
-
   }
 };
 //get product details
 const getProductDetails = async (req, res) => {
-try {
-  const {productId} = req.body;
-  const product = await productModel.findById(productId);
-  res.json({success:true,product})
-  
-} catch (error) {
-  console.log(error);
-  res.json({ success: false, error: true, message: error.message });
-
-}
-
+  try {
+    const { productId } = req.body;
+    const product = await productModel.findById(productId);
+    res.json({ success: true, product });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, error: true, message: error.message });
+  }
 };
-const getCategoryProduct = async (req, res) => {};
+const getCategoryProduct = async (req, res) => {
+  try {
+    const productCategory = await productModel.distinct("subcategory");
+
+    const productByCategory = [];
+    for (const subcategory of productCategory) {
+      const product = await productModel.findOne({subcategory});
+      if (product) {
+        productByCategory.push(product);
+      }
+    }
+
+    res.json({ success: true, message: "Category product", productByCategory });
+  } catch (error) {
+    console.log(error);
+    res.json({ success: false, error: true, message: error.message });
+  }
+};
 //editProduct
 
 const editProduct = async () => {};
 // remove product
 const removeProduct = async (req, res) => {
   try {
-    await productModel.findByIdAndDelete(req.body.id)
-    res.json({success:true, error:false,message:"L'article a bien été supprimé"})
+    await productModel.findByIdAndDelete(req.body.id);
+    res.json({
+      success: true,
+      error: false,
+      message: "L'article a bien été supprimé",
+    });
   } catch (error) {
-    console.log(error)
+    console.log(error);
     res.json({ success: false, error: true, message: error.message });
-
   }
 };
 const searchProduct = async () => {};

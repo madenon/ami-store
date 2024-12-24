@@ -6,6 +6,6 @@ const userSchema = new mongoose.Schema({
     password:{type:String, required:true},
     cartData:{type:Object, default:{}},
     profilePic:{type:String, default:"https://www.svgrepo.com/show/384676/account-avatar-profile-user-6.svg"},
-}, {minimize:false})
+}, {timestamps:true})
 const userModel = mongoose.models.user || mongoose.model("user", userSchema)
 export default userModel

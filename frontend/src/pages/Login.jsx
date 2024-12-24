@@ -1,5 +1,4 @@
 import React, { useContext, useEffect, useState } from "react";
-import loginIcons from "../assets/signin.gif";
 import { FaEye } from "react-icons/fa";
 import { FaEyeSlash } from "react-icons/fa";
 import {Link} from 'react-router-dom'

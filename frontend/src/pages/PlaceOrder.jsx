@@ -5,6 +5,7 @@ import { assets } from "../assets/assets";
 import { ShopContext } from "../context/ShopContext";
 import axios from "axios";
 import { toast } from "react-toastify";
+import Login from "./Login";
 
 const PlaceOrder = () => {
   const { navigate,backendUrl,token,cartItems, setCartItems,getCartAmount,delivery_fee,products } = useContext(ShopContext);
@@ -82,7 +83,9 @@ const PlaceOrder = () => {
     }
 
   }
-  return (
+  //  return (!token ? <Login />:
+
+  return (!token ? <Login />:
     <form  onSubmit={onSubmiHandlert} className="flex flex-col sm:flex-row justify-between gap-4 pt-5 sm:pt-14 min-h-[80vh] border-t">
       {/* left side */}
       <div className="flex flex-col gap-4 w-full sm:max-w-[380x]  shadow-sm bg-slate-100">

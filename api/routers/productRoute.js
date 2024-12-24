@@ -28,7 +28,7 @@ productRoute.post(
 productRoute.post("/singleProduct", getProductDetails);
 productRoute.post("/remove", adminAuth, removeProduct);
 productRoute.post("/update-product", editProduct);
-productRoute.get("/get-category-product", getCategoryProduct);
+productRoute.post("/get-category-product", getCategoryProduct);
 productRoute.get("/products", getProduct);
 productRoute.post("/category-product", getCategoryWiseProduct);
 productRoute.get("/search", searchProduct);

@@ -4,8 +4,9 @@ import Title from "../components/Title";
 import { assets } from "../assets/assets";
 import CartTotal from "../components/CartTotal";
 
+
 const Cart = () => {
-  const { products, currency, cartItems, updateQuantity,navigate } =
+  const { products, currency, cartItems,getCartAmount, updateQuantity,navigate } =
     useContext(ShopContext);
   const [cartData, setCartData] = useState([]);
 
@@ -29,7 +30,7 @@ setCartData(tempData)
  }
 },[cartItems,products])
 
-  return(
+  return(getCartAmount() ===0 ? <p className="text-center text-2xl shadow rounded-b-sm text-red-300 hover:scale-125 transition ease-in-out">Votre Panier est vide</p>:
     <div className="border-t pt-14">
   <div className="text-2xl mb-3">
  <Title text1={"Votre"}  text2={"Panier"} />

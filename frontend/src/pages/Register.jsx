@@ -22,17 +22,11 @@ const Register = () => {
   const handleOnSubmit = async (event) => {
     event.preventDefault();
     try {
-      
-
       const response = await axios.post(backendUrl + "/api/user/register", {
         name,
         email,
         password,
         password2,
-        profilePic:imagePic
-
-      
-
       });
       if (response.data.success) {
         setToken(response.data.token);

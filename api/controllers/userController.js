@@ -37,6 +37,18 @@ const loginuser = async (req, res) => {
   }
 };
 
+
+const getAllUser = async (req, res) => {
+  try {
+    const alluser = await userModel.find({})
+     res.json({success:true,error:false, alluser})
+  } catch (error) {
+    console.log(error)
+    res.json({ success: false, error: true, message: error.message });
+
+  }
+};
+
 const registerUser = async (req, res) => {
   try {
     const { name, email, password, password2 } = req.body;
@@ -83,6 +95,8 @@ const registerUser = async (req, res) => {
   }
 };
 
+
+
 const adminLogin = async (req, res) => {
   try {
     const { email, password } = req.body;
@@ -105,4 +119,4 @@ res.json({success:false, error:true, message:error.message})
   }
 };
 
-export { loginuser, registerUser,adminLogin };
+export { loginuser, registerUser,adminLogin,getAllUser };

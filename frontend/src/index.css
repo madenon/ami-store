@@ -32,3 +32,9 @@ a.active p {
     color: white;
   }
 }
+
+/* Scolle */
+
+.scrollbar-none::-webkit-scrollbar {
+  display: none;
+}
