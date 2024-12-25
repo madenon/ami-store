@@ -3,7 +3,6 @@ import { useParams } from 'react-router-dom'
 
 const CategoryProduct = () => {
   const params = useParams()
-  console.log("categoryName", params)
   return (
     <div className='mt-10'>
 

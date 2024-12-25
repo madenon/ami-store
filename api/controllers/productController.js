@@ -65,9 +65,24 @@ const filterProduct = async (req, res) => {};
 
 // getCategoryProductOne
 
-const getCategoryProductOne = async () => {};
+const getCategoryProductOne = async () => {
 
-const getCategoryWiseProduct = async () => {};
+};
+
+const getCategoryWiseProduct = async (req,res) => {
+try {
+  const {subcategory} = req?.body || req?.query
+  const product = await productModel.find({subcategory})
+  res.json({
+    success:true, data:product, message:"Produits"
+  })
+} catch (error) {
+  console.log(error);
+  res.json({ success: false, error: true, message: error.message });
+  
+}
+
+};
 
 // function for add product
 const getProduct = async (req, res) => {

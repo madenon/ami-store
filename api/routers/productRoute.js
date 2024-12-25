@@ -3,6 +3,7 @@ import {
   editProduct,
   filterProduct,
   getCategoryProduct,
+  getCategoryProductOne,
   getCategoryWiseProduct,
   getProduct,
   getProductDetails,
@@ -29,8 +30,9 @@ productRoute.post("/singleProduct", getProductDetails);
 productRoute.post("/remove", adminAuth, removeProduct);
 productRoute.post("/update-product", editProduct);
 productRoute.post("/get-category-product", getCategoryProduct);
+productRoute.post("/get-category-single", getCategoryProductOne);
 productRoute.get("/products", getProduct);
-productRoute.post("/category-product", getCategoryWiseProduct);
+productRoute.post("/category-wise-product", getCategoryWiseProduct);
 productRoute.get("/search", searchProduct);
 productRoute.post("/filter-product", filterProduct);
 
