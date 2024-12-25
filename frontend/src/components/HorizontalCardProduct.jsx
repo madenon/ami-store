@@ -22,7 +22,7 @@ const HorizontalCardProduct = ({subcategory,heading}) => {
    loading ?(
     loadingList.map((product,index)=>{
       return (
-  <div key={"product"+index} className='w-full min-w-[180px] md:min-w-[300px] max-w-[180px] md:max-w-[300px] h-36 rounded-sm shadow flex'>
+  <div key={"product"+index} className='w-full min-w-[180px] md:min-w-[300px] max-w-[180px] md:max-w-[300px] bg-purple-400 h-36 rounded-sm shadow flex'>
         <div className="bg-slate-200 h-full p-5 min-w-[100px] md:min-w-[125px]">
   
         </div>
@@ -32,19 +32,15 @@ const HorizontalCardProduct = ({subcategory,heading}) => {
             <div className='flex'>
               <p className='text-2xl font-medium text-gray-600 p-1'></p>
             </div>
-          
         </div>
-  
-  
-  
                </div>
       )
     })
    ):(
     products.map((product,index)=>{
       return (
-  <div key={"product"+index} className='w-full min-w-[180px] md:min-w-[300px] max-w-[180px] md:max-w-[300px] h-36 rounded-sm shadow flex'>
-        <div className="bg-slate-200 h-full p-5 min-w-[100px] md:min-w-[125px]">
+  <div key={"product"+index} className='w-full min-w-[180px] md:min-w-[300px] max-w-[180px] md:max-w-[300px] bg-purple-100 h-36 rounded-sm shadow flex'>
+        <div className="bg-gray-300 h-full p-5 min-w-[100px] md:min-w-[125px]">
         <NavLink to={`/product/${product._id}`}>
          <img src={product.image[0]} alt="" className='object-scale-down  h-full hover:scale-125 transition-all' />
         </NavLink>
@@ -55,11 +51,9 @@ const HorizontalCardProduct = ({subcategory,heading}) => {
             <div className='flex justify-between '>
               <p className='text-xl font-medium'>{product?.price}{" "}{currency}</p>
               <NavLink to={`/product/${product._id}`}>
-              <p className=' w-12 h-6 text-center items-center bg-red-500 rounded-full hover:bg-red-800 text-white'>voir +</p>
-
+              <p className=' w-3  h-3 items-center  bg-red-500 rounded-full  hover:bg-red-800 text-white'>.</p>
               </NavLink>
             </div>
-          
         </div>
 
   
