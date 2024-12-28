@@ -30,7 +30,7 @@ setCartData(tempData)
  }
 },[cartItems,products])
 
-  return(getCartAmount() ===0 ? <p className="text-center text-2xl shadow rounded-b-sm text-red-300 hover:scale-125 transition ease-in-out">Votre Panier est vide</p>:
+  return(getCartAmount() ===0 ? <p className="text-center text-2xl mt-16 shadow rounded-b-sm text-red-300 hover:scale-125 transition ease-in-out">Votre Panier est vide</p>:
     <div className="border-t pt-14">
   <div className="text-2xl mb-3">
  <Title text1={"Votre"}  text2={"Panier"} />

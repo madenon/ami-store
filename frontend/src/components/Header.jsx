@@ -22,8 +22,8 @@ const Header = () => {
     navigate("/login");
   };
   return (
-    <header className="h-16 shadow-md  bg-white/100 w-full fixed z-50 top-0">
-      <div className="h-full container mx-auto flex items-center px-4 justify-between">
+    <header className="h-16 shadow-md  bg-white/100 w-full fixed  z-50 top-0">
+      <div className="h-full container mx-auto flex items-center  px-4 justify-between">
         <div className=" p-2">
           <Link to="/">
             <img src={assets.logo_n} className="w-9" alt="" />
@@ -126,11 +126,11 @@ const Header = () => {
         </div>
         {/* sidebar menu pour les petits ecrans */}
         <div
-          className={`bottom-0 overflow-hidden bg-white transition-all fixed z-50 top-0 ${
+          className={`bottom-0 overflow-hidden gap-3  bg-white/100 transition-all fixed z-50 top-0 ${
             visible ? "w-full" : "w-0"
           }`}
         >
-          <div className="flex flex-col text-gray-600  bg-purple-400 ">
+          <div className="flex flex-col">
             <div
               onClick={() => setVisible(false)}
               className="flex  items-center gap-4 p-3"
@@ -140,54 +140,61 @@ const Header = () => {
                 src={assets.dropdown_icon}
                 alt=""
               />
-              <p className=" cursor-pointer">Retour au menu</p>
+              <p className=" cursor-pointer text-2xl">Retour au menu</p>
             </div>
 
             <NavLink
               onClick={() => setVisible(false)}
-              className="py-2 pl-6 border hover:bg-red-400 hover:rounded-full  px-3 "
+              className="py-2 pl-6  hover:rounded-full  px-3 text-red-500 text-2xl"
               to="/"
             >
               Accueil
             </NavLink>
+            <hr  className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800"/>
 
             <NavLink
               onClick={() => setVisible(false)}
-              className="hover:bg-red-400 hover:rounded-full  px-3 py-1 pl-6 border"
+              className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
               to="/about"
             >
               A Propos de nous
             </NavLink>
+            <hr  className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800"/>
+
             <NavLink
               onClick={() => setVisible(false)}
-              className="hover:bg-red-400 hover:rounded-full  px-3 py-1 pl-6 border"
+              className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
               to="/contact"
             >
               Contact
             </NavLink>
-            <NavLink
-              onClick={() => setVisible(false)}
-              className="hover:bg-red-400 hover:rounded-full  px-3 py-1 pl-6 text-2xl border"
-              to="/cart"
-            >
-              <PiShoppingCartThin />
-            </NavLink>
+            <hr  className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800"/>
 
             <NavLink
               onClick={() => setVisible(false)}
-              className="hover:bg-red-400 hover:rounded-full  px-3 py-1 pl-6 border text-2xl"
+              className="hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl "
+              to="/cart"
+            >
+              <PiShoppingCartThin  className="text-red-500 text-2xl"/>
+            </NavLink>
+            <hr  className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800"/>
+
+            <NavLink
+              onClick={() => setVisible(false)}
+              className="hover:rounded-full  px-3 py-1 pl-6 text-red-500   text-2xl"
               to="/user"
             >
               <LuUserCircle2 />
             </NavLink>
-
+<hr  className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800"/>
             <NavLink
               onClick={() => setVisible(false)}
-              className="hover:bg-red-400 hover:rounded-full  px-3 py-1 pl-6 border"
+              className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
               to="/login"
             >
               Se Connecter
             </NavLink>
+            
           </div>
         </div>
       </div>

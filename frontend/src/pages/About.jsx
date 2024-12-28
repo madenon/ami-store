@@ -11,7 +11,7 @@ const About = () => {
   const [show41, setShow41] = useState(false);
   return (
     <div>
-      <div className="bg-white p-2 px-4 flex justify-between items-center">
+      <div className="bg-white p-2 px-4 flex justify-between items-center mt-16">
         <Title text1={"A props de"} text2={"Nous"} />
       </div>
 
