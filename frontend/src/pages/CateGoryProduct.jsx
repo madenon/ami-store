@@ -10,7 +10,8 @@ const CategoryProduct = () => {
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
-  const [subCategory, setSubCategory] = useState([]);
+  const [subcategory, setSubcategory] = useState([]);
+  const [sortType, setSortType] = useState("relavent");
 
   const toggleCategory = (ev) => {
     if (category.includes(ev.target.value)) {
@@ -21,12 +22,12 @@ const CategoryProduct = () => {
   };
 
   const toggleSubCategory = (e) => {
-    if (subCategory.includes(e?.target?.value)) {
-      setSubCategory((prev) =>
-        prev?.filter((item) => item !== e.target?.value)
+    if (subcategory.includes(e.target.value)) {
+      setSubcategory((preve) =>
+        preve.filter((item) => item !== e.target.value)
       );
     } else {
-      setSubCategory((prev) => [...prev, e?.target?.value]);
+      setSubcategory((preve) => [...preve, e.target.value]);
     }
   };
   const applyFilter = ()=>{
@@ -34,19 +35,40 @@ const CategoryProduct = () => {
     if(category.length > 0){
       productsCopy = productsCopy.filter(item => category.includes(item.category))
     }
+    if(subcategory.length > 0){
+   productsCopy = productsCopy.filter(item => subcategory.includes(item.subcategory))
+    }
     setFilterProducts(productsCopy)
+  }
+
+  const sortProduct = () =>{
+     let fpCopy = filterProducts.slice();
+     switch (sortType){
+      case 'low-high':
+        setFilterProducts(fpCopy.sort((a,b)=>(a.price - b.price)))
+   break;
+   case 'high-low':
+    setFilterProducts(fpCopy.sort((a,b)=>(b.price -a.price)))
+ break;
+ default:
+  applyFilter()
+  break;
+     }
   }
 
   useEffect(() => {
     setFilterProducts(products);
   }, []);
+
   useEffect(() => {
     applyFilter()
-  }, [category,subCategory]);
+  }, [category,subcategory]);
 
   
-
-  const params = useParams();
+useEffect(()=>{
+sortProduct()
+},[sortType])
+ 
   return (
     <div className="mt-10 flex  flex-col sm:flex-row sm:gap-10 pt-10 border-t">
       {/* {params?.categoryName} */}
@@ -75,6 +97,7 @@ const CategoryProduct = () => {
           <div className="flex flex-col gap-2 text-sm font-medium text-gray-700">
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
                 value={"Electronique"}
@@ -84,6 +107,7 @@ const CategoryProduct = () => {
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
                 value={"Vetements"}
@@ -93,6 +117,7 @@ const CategoryProduct = () => {
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
                 value={"Autre"}
@@ -111,8 +136,9 @@ const CategoryProduct = () => {
         >
           <p className="mb-3 text-sm font-medium">SOUS CATEGORIES</p>
           <div className="flex flex-col gap-2 text-sm    font-medium">
-            <p className="flex gap-2">
+          <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
                 value={"Airpodes"}
@@ -122,6 +148,7 @@ const CategoryProduct = () => {
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
                 value={"Camera"}
@@ -131,137 +158,145 @@ const CategoryProduct = () => {
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
                 value={"Earphones"}
                 onChange={toggleSubCategory}
               />{" "}
-              Écouteurs
+              Earphones
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="{Mobiles}"
-                onChange={toggleCategory}
-              />
+                value={"Mobiles"}
+                onChange={toggleSubCategory}
+              />{" "}
               Mobiles
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="{Souris}"
-                onChange={toggleCategory}
-              />
+                value={"Souris"}
+                onChange={toggleSubCategory}
+              />{" "}
               Souris
             </p>
             <p className="flex gap-2">
-              {" "}
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="{Imprimantes}"
-                onChange={toggleCategory}
-              />
+                value={"Imprimantes"}
+                onChange={toggleSubCategory}
+              />{" "}
               Imprimantes
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="{Processeur}"
-                onChange={toggleCategory}
-              />
+                value={"Processeur"}
+                onChange={toggleSubCategory}
+              />{" "}
               Processeur
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="{Réfrigérateur}"
+                value={"Réfrigérateur"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Réfrigérateur
             </p>
-            <p className=" flex gap-2">
-              {" "}
+            <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="{Baffe}"
+                value={"Baffe"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Baffe
             </p>
             <p className="flex gap-2">
-              {" "}
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="{Tondeuses}"
+                value={"Tondeuses"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Tondeuses
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="Télévision"
+                value={"Télévision"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Télévision
             </p>
             <p className="flex gap-2">
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="Montres"
+                value={"Montres"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Montres
             </p>
             <p className="flex gap-2">
-              {" "}
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="Chaussures"
+                value={"Chaussures"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Chaussures
             </p>
             <p className="flex gap-2">
-              {" "}
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="Ordinateur"
+                value={"Ordinateur"}
                 onChange={toggleSubCategory}
-              />
-              Ordinateurs
+              />{" "}
+              Ordinateur
             </p>
             <p className="flex gap-2">
-              {" "}
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="Vetements"
+                value={"Vetements"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Vetements
             </p>
             <p className="flex gap-2">
-              {" "}
               <input
+              onClick={()=>window.scrollTo({top:0, behavior:"smooth"})}
                 className="w-3"
                 type="checkbox"
-                value="Autres"
+                value={"Autres"}
                 onChange={toggleSubCategory}
-              />
+              />{" "}
               Autres
             </p>
+            
           </div>
         </div>
       </div>
@@ -270,7 +305,7 @@ const CategoryProduct = () => {
         <div className="flex justify-between text-base sm:text-2xl mb-4">
           <Title text1={"Tout"} text2={"Les produits"} />
           {/* Trier de produit */}
-          <select className="border-2 border-gray-300 text-sm px-2">
+          <select onChange={(e)=>setSortType(e.target.value)} className="border-2 border-gray-300 text-sm px-2">
             <option value="relavent">Pertinente</option>
             <option value="low-high">Prix du plus pétit au plus élevé</option>
             <option value="high-low">Prix du plus haut au plus bas</option>

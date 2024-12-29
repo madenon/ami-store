@@ -52,7 +52,7 @@ const HorizontalCardProduct = ({subcategory,heading}) => {
               ))}
             </div>
           </div>
-          <button onClick={()=>addToCart(product._id,size)} className="bg-white border border-red-400 hover:bg-red-700 -ml-5 text-black  py-1 rounded-t-md text-sm active:bg-gray-700">AJOUTER AU PANIER</button>
+          <button onClick={()=>addToCart(product._id,size)} className="bg-white border border-purple-400 hover:bg-black -ml-5 text-red-800  py-1 rounded-t-md text-sm active:bg-gray-700">AJOUTER AU PANIER</button>
            <hr className="" />
         </div>
         
