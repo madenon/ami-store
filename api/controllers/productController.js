@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from "cloudinary";
 import productModel from "../models/productModel.js";
+import { query } from "express";
 
 // upload product uploadProduct
 const uploadProduct = async (req, res) => {
@@ -140,7 +141,15 @@ const removeProduct = async (req, res) => {
     res.json({ success: false, error: true, message: error.message });
   }
 };
-const searchProduct = async () => {};
+const searchProduct = async (req, res) => {
+try {
+  
+  const query = req.query.q
+} catch (error) {
+  res.json({success:false, query, error:true, message:error.message})
+  
+}
+};
 
 export {
   uploadProduct,

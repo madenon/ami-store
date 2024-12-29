@@ -5,7 +5,6 @@ import { NavLink } from 'react-router-dom';
 
 const HorizontalCardProduct = ({subcategory,heading}) => {
     const { backendUrl,products, currency,addToCart } = useContext(ShopContext);
- console.log(products)
     const [data,setData] = useState([])
     const [loading,setLoading] = useState(false)
     const loadingList = new Array(15).fill(null)

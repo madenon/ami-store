@@ -33,7 +33,7 @@ productRoute.post("/get-category-product", getCategoryProduct);
 productRoute.post("/get-category-single", getCategoryProductOne);
 productRoute.get("/products", getProduct);
 productRoute.post("/category-wise-product", getCategoryWiseProduct);
-productRoute.get("/search", searchProduct);
+productRoute.post("/search", searchProduct);
 productRoute.post("/filter-product", filterProduct);
 
 export { productRoute };
