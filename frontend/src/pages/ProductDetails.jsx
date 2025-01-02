@@ -64,13 +64,13 @@ const ProductDetails = () => {
                   onClick={() => setImage(item)}
                   src={item}
                   key={index}
-                  className="w-[24%] sm:w-full sm:mb-3 mt-0 flex-shrink-0  cursor-pointer"
+                  className="w-[30%] sm:w-full h-[23%] sm:mb-3 mt-0 flex-shrink-0  cursor-pointer"
                   alt=""
                 />
               );
             })}
           </div>
-          <div className="w-full sm:w-[40%] shadow rounded relative">
+          <div className="w-full sm:w-[50%] shadow rounded relative">
             <img
               src={image}
               alt="imagesActive"

@@ -1,12 +1,11 @@
 import React, { useContext, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
 import { ShopContext } from "../context/ShopContext";
 import { assets } from "../assets/assets";
 import Title from "../components/Title";
 import ProductItem from "../components/ProductItem";
 
 const CategoryProduct = () => {
-  const { products } = useContext(ShopContext);
+  const { products,search } = useContext(ShopContext);
   const [showFilter, setShowFilter] = useState(false);
   const [filterProducts, setFilterProducts] = useState([]);
   const [category, setCategory] = useState([]);
@@ -32,6 +31,9 @@ const CategoryProduct = () => {
   };
   const applyFilter = ()=>{
     let productsCopy = products.slice()
+    if (search) {
+      productsCopy =productsCopy.filter(item=>item.productName.toLowerCase().includes(search.toLowerCase()))
+    }
     if(category.length > 0){
       productsCopy = productsCopy.filter(item => category.includes(item.category))
     }
@@ -62,7 +64,7 @@ const CategoryProduct = () => {
 
   useEffect(() => {
     applyFilter()
-  }, [category,subcategory]);
+  }, [category,subcategory,search]);
 
   
 useEffect(()=>{
@@ -306,13 +308,13 @@ sortProduct()
           <Title text1={"Tout"} text2={"Les produits"} />
           {/* Trier de produit */}
           <select onChange={(e)=>setSortType(e.target.value)} className="border-2 border-gray-300 text-sm px-2">
-            <option value="relavent">Pertinente</option>
+            <option value="relavent"> Tri Par Pertinence</option>
             <option value="low-high">Prix du plus pétit au plus élevé</option>
             <option value="high-low">Prix du plus haut au plus bas</option>
           </select>
         </div>
         {/* Map products */}
-        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-4 gap-y-6">
+        <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-3 gap-4 gap-y-6">
           {filterProducts.map((item, index) => (
             <ProductItem
               key={index}

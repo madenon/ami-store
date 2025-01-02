@@ -3,14 +3,17 @@ import { ShopContext } from '../context/ShopContext';
 import axios from 'axios';
 import { NavLink } from 'react-router-dom';
 
-const HorizontalCardProduct = ({subcategory,heading}) => {
-    const { backendUrl,products, currency,addToCart } = useContext(ShopContext);
-    const [data,setData] = useState([])
+const HorizontalCardProduct = ({heading}) => {
+    const {products, currency,addToCart } = useContext(ShopContext);
+    const [latestProducts, setLatestProducts] = useState([]);
+
     const [loading,setLoading] = useState(false)
     const loadingList = new Array(15).fill(null)
       const [size,setSize] = useState("")
     
-
+      useEffect(() => {
+        setLatestProducts(products.slice(4, 12));
+      }, [products]);
 
   return (
     <div className='container mx-auto px-0  my-6'>
@@ -36,15 +39,15 @@ const HorizontalCardProduct = ({subcategory,heading}) => {
       )
     })
    ):(
-    products.map((product,index)=>{
+    latestProducts.map((product,index)=>{
       return (
-  <div key={"product"+index} className='w-full min-w-[180px] p-5 min-h-[220px]   max-h-[300px] md:min-w-[300px] max-w-[180px]  md:max-w-[200px] gap-1 bg-gray-200 h-36 rounded-sm shadow flex'>
+  <div key={"product"+index} className='w-full min-w-[120px] p-2 min-h-[220px]   max-h-[280px] md:min-w-[280px] max-w-[180px]  md:max-w-[200px] gap-1 bg-gray-200 h-36 rounded-sm shadow flex'>
        
-        <div className="bg-gray-100 h-full p-5 min-w-[100px]  min-h-[100px] max-h-[125px] md:min-w-[125px]">
+        <div className="bg-gray-100 h-full p-5 min-w-[90px]  min-h-[100px] max-h-[125px] md:min-w-[125px]">
         <NavLink to={`/product/${product._id}`}>
          <img src={product.image[0]} alt="" className='object-scale-down h-full  w-full hover:scale-150 transition-all' onClick={()=>window.scrollTo({top:0, behavior:"smooth"})} />
         </NavLink>
-        <div className="flex flex-col gap-4 my-4 w-full ">
+        <div className="flex flex-col gap-4 my-4 w-full">
             {/* <p>Selectionner la taille</p> */}
             <div className="flex gap-2">
               {product.sizes.map((item, index) => (
@@ -55,9 +58,6 @@ const HorizontalCardProduct = ({subcategory,heading}) => {
           <button onClick={()=>addToCart(product._id,size)} className="bg-white border border-purple-400 hover:bg-black -ml-5 text-red-800  py-1 rounded-t-md text-sm active:bg-gray-700">AJOUTER AU PANIER</button>
            <hr className="" />
         </div>
-        
-
-        
         <div className='grid'>
           
            <h2 className='font-medium text-base md:text-lg text-ellipsis text-slate-700'>{product?.productName}</h2>
@@ -67,25 +67,13 @@ const HorizontalCardProduct = ({subcategory,heading}) => {
               <NavLink to={`/product/${product._id}`}>
               </NavLink>
             </div>
-            
-            
-        </div>
-        
-
-  
-  
-               </div>
-
-               
+        </div> 
+               </div>  
       )
     })
    )
   }
    </div>
-      
-    
-
-      
     </div>
   )
 }
