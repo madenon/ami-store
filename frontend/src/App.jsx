@@ -22,6 +22,9 @@ import PlaceOrder from "./pages/PlaceOrder";
 import NewsletterBox from "./components/NewsletterBox";
 import Verify from "./pages/Verify";
 import BannerPrduct from "./components/BannerPrduct";
+import Etudiant from "./pages/Etudiant";
+import Offres from "./pages/Offres";
+import PanneauxSolaire from "./pages/PanneauxSolaire";
 
 const App = () => {
 
@@ -30,11 +33,14 @@ const App = () => {
     <>
       <ToastContainer position="top-center" />
       <Header />
-      <div className='min-h-[calc(100vh-120px)] pt-8 px-8'>
+      <div className='min-h-[calc(100vh-120px)] pt-8 px-4'>
        <Routes>
         
         <Route path="/" element={<Home />} />
         <Route path="/login" element={<Login />} />
+        <Route path="/offre" element={<Offres />} />
+        <Route path="/offre-etudiant" element={<Etudiant />} />
+        <Route path="/panneau-solaire-immobilier" element={<PanneauxSolaire />} />
         <Route path="/register" element={<Register />} />
         <Route path="/product-category/:categoryName" element={<CategoryProduct />} />
         <Route path="/product/:productId" element={<ProductDetails />} />

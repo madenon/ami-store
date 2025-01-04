@@ -141,13 +141,13 @@ const ProductDetails = () => {
           <div className="flex items-center gap-3 my-3">
             <button
               onClick={() => addToCart(productData._id, size)}
-              className=" text-black hover:bg-red-500  font-medium border border-red-400 px-0 py-3 rounded-se-lg text-sm bg-white "
+              className=" text-black hover:bg-slate-500 hover:border-black  font-medium border border-red-400 px-0 py-3 rounded-se-lg text-sm bg-white "
             >
               ACHETR MAINTENANT
             </button>
             <button
               onClick={() => addToCart(productData._id, size)}
-              className=" text-black hover:bg-red-500 font-medium border border-red-400 px-4 py-3 rounded-se-lg text-sm bg-white"
+              className=" text-black hover:bg-slate-500 hover:border-black font-medium border border-red-400 px-4 py-3 rounded-se-lg text-sm bg-white"
             >
               AJOUTER AU PANIER
             </button>

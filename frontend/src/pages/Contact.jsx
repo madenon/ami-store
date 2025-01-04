@@ -1,11 +1,12 @@
 import React from "react";
 import Title from "../components/Title";
 import { assets } from "../assets/assets";
-// import NewsletterBox from "../components/NewsletterBox";
+import NewsletterBox from "../components/NewsletterBox";
+import { NavLink } from "react-router-dom";
 
 const Contact = () => {
   return (
-    <div className="bg-slate-200 mt-16">
+    <div className="bg-slate-200 mt-8">
       <div className="text-center text-2xl pt-10 border-t">
         <Title text1={"Nous"} text2={"Contacter"} />
       </div>
@@ -32,12 +33,20 @@ const Contact = () => {
           <p className="text-gray-500">
             Savoir plus sur nos offres de recrutements
           </p>
-          <button className="border border-black rounded-t-full px-8 py-4 hover:bg-black hover:text-white duration-500 uppercase">
-            parcourir nos offres
-          </button>
+          <div className="flex justify-between gap-4 m-4 p-3">
+          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/offre"} className="border border-orange-400 rounded-t-full px-8 py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
+          Nos offres
+          </NavLink>
+          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/offre-etudiant"}  className="border border-orange-400 rounded-t-full px-8 py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
+          Offres étudiants
+          </NavLink>
+          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/panneau-solaire-immobilier"}  className="border border-orange-400 rounded-t-full px-8 py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
+          Panneau Solaire
+          </NavLink>
+          </div>
         </div>
       </div>
-      {/* <NewsletterBox /> */}
+      <NewsletterBox />
     </div>
   );
 };

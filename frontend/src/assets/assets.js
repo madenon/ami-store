@@ -101,11 +101,15 @@ import pagne_3 from "./pagne_hol.jpg"
 import refri_1 from "./refirig.png"
 import refri_2 from "./refri.jpg"
 import refri_3 from "./refri.png"
+import pano from "./panneau.jpg"
+import paneau from "./pano.jpg"
 
 
 
 
 export const assets = {
+    paneau,
+    pano,
     parfum,
     parfum_1,
     parfum_2,

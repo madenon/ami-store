@@ -98,17 +98,17 @@ const location = useLocation()
               </div>
             )}
 
-            <NavLink onClick={()=>window.scrollTo({top:"10px", behavior:"smooth"})} to="/" className="flex flex-col items-center gap-1">
+            <NavLink onClick={()=>window.scrollTo({top:"10", behavior:"smooth"})} to="/" className="flex flex-col items-center gap-1">
               <p className=" hover:rounded-full    px-1 py-1">Accueil</p>
               <hr className="w-3/4 border-none h-[4px] bg-slate-700 hidden" />
             </NavLink>
 
-            <NavLink onClick={()=>window.scrollTo({top:"10px", behavior:"smooth"})} to="/about" className="flex flex-col items-center gap-1">
+            <NavLink onClick={()=>window.scrollTo({top:"10", behavior:"smooth"})} to="/about" className="flex flex-col items-center gap-1">
               <p className=" hover:rounded-full   px-1 py-1 ">A propos</p>
               <hr className="w-3/4 border-none h-[4px] bg-slate-700 hidden" />
             </NavLink>
 
-            <NavLink onClick={()=>window.scrollTo({top:"10px", behavior:"smooth"})} to="/contact" className="flex flex-col items-center gap-1">
+            <NavLink onClick={()=>window.scrollTo({top:"30", behavior:"smooth"})} to="/contact" className="flex flex-col items-center gap-1">
               <p className=" hover:rounded-full   px-1 py-1 ">Contact</p>
               <hr className="w-3/4 border-none h-[4px] bg-slate-700 hidden" />
             </NavLink>
@@ -165,7 +165,7 @@ const location = useLocation()
             </div>
 
             <NavLink
-            onClick={()=>window.scrollTo({top:"20px", behavior:"smooth"} &&  setVisible(false))}
+            onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
             className="py-2 pl-6  hover:rounded-full  px-3 text-red-500 text-2xl"
               to="/"
             >
@@ -174,7 +174,7 @@ const location = useLocation()
             <hr className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800" />
 
             <NavLink
-            onClick={()=>window.scrollTo({top:"20px", behavior:"smooth"} &&  setVisible(false))}
+            onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
             className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
               to="/about"
             >
@@ -183,7 +183,7 @@ const location = useLocation()
             <hr className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800" />
 
             <NavLink
-            onClick={()=>window.scrollTo({top:"20px", behavior:"smooth"} &&  setVisible(false))}
+            onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
             className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
               to="/contact"
             >
@@ -192,7 +192,7 @@ const location = useLocation()
             <hr className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800" />
 
             <NavLink
-            onClick={()=>window.scrollTo({top:"20px", behavior:"smooth"} &&  setVisible(false))}
+            onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
             className="hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl "
               to="/cart"
             >
@@ -201,7 +201,7 @@ const location = useLocation()
             <hr className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800" />
 
             <NavLink
-            onClick={()=>window.scrollTo({top:"20px", behavior:"smooth"} &&  setVisible(false))}
+            onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
             className="hover:rounded-full  px-3 py-1 pl-6 text-red-500   text-2xl"
               to="/user"
             >

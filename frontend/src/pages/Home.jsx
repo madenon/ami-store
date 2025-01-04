@@ -8,16 +8,14 @@ import HorizontalCardProduct from "../components/HorizontalCardProduct";
 const Home = () => {
 
   return (
-   <>
+   <div className="bg-slate-50">
    <CategoryList />
    <BannerPrduct/>
 
    <HorizontalCardProduct />
- <div className="grid grid-cols-1 sm:grid-cols-3 md:grid-cols-4 lg:grid-cols-5 gap-5 ">
 
-</div>
 
-   </>
+   </div>
   );
 };
 

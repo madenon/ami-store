@@ -63,7 +63,7 @@ const placeOrderStripe = async (req, res) => {
       price_data: {
         currency: currency,
         product_data: {
-          name: "Delivery Charges",
+          name: "Frais de livraison",
         },
         unit_amount: deliveryCharges * 100,
       },
@@ -76,7 +76,7 @@ const placeOrderStripe = async (req, res) => {
       mode: "payment",
     });
 
-    res.json({ success: true, session_url: session.url });
+    res.json({ success: true, session_url:session.url });
   } catch (error) {
     console.log(error);
     res.json({ success: false, message: error.message });
@@ -88,7 +88,7 @@ const verifyStripe = async(req, res)=>{
   const { orderId, success, userId } = req.body;
 
   try {
-    if(success==='true'){
+    if(success === 'true'){
       await orderModel.findByIdAndUpdate(orderId,{payment:true})
       await userModel.findByIdAndUpdate(userId,{cartData:{}})
       res.json({success:true})
