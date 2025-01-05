@@ -40,9 +40,7 @@ const Contact = () => {
           <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/offre-etudiant"}  className="border border-orange-400 rounded-e-3xl py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
           Offres étudiants
           </NavLink>
-          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/panneau-solaire-immobilier"}  className="border border-orange-400  rounded-e-3xl py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
-          Panneau Solaire
-          </NavLink>
+         
           </div>
         </div>
       </div>
