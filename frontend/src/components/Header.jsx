@@ -166,7 +166,7 @@ const location = useLocation()
 
             <NavLink
             onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
-            className="py-2 pl-6  hover:rounded-full  px-3 text-red-500 text-2xl"
+            className="py-2 pl-6  hover:rounded-full  px-3 text-red-slate text-2xl"
               to="/"
             >
               Accueil
@@ -175,7 +175,7 @@ const location = useLocation()
 
             <NavLink
             onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
-            className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
+            className=" hover:rounded-full  px-3 py-1 pl-6 text-slate-500 text-2xl"
               to="/about"
             >
               A Propos de nous
@@ -184,7 +184,7 @@ const location = useLocation()
 
             <NavLink
             onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
-            className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
+            className=" hover:rounded-full  px-3 py-1 pl-6 text-slate-500 text-2xl"
               to="/contact"
             >
               Contact
@@ -193,16 +193,20 @@ const location = useLocation()
 
             <NavLink
             onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
-            className="hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl "
+            className="hover:rounded-full relative  px-3 py-1 pl-6 text-slate-500 text-2xl "
               to="/cart"
             >
-              <PiShoppingCartThin className="text-red-500 text-2xl" />
+              <PiShoppingCartThin className="text-slate-500 text-2xl" />
+              
+              <span className="-top-2 right-[78]  absolute text-2xl font-medium bg-rose-800 text-white w-5 h-5 rounded-full p-1 flex items-center justify-center">
+                  <small className="text-sm bg-red">{getCartCount()}</small>
+                </span>
             </NavLink>
             <hr className="w-44 h-2 bg-slate-500 ml-6 rounded-t-lg hover:bg-slate-800" />
 
             <NavLink
             onClick={()=>window.scrollTo({top:"20", behavior:"smooth"} &&  setVisible(false))}
-            className="hover:rounded-full  px-3 py-1 pl-6 text-red-500   text-2xl"
+            className="hover:rounded-full  px-3 py-1 pl-6 text-slate-500   text-2xl"
               to="/user"
             >
               <LuUserCircle2 />
@@ -211,7 +215,7 @@ const location = useLocation()
             <NavLink
             onClick={()=>window.scrollTo({top:0, behavior:"smooth"} &&  setVisible(false))}
               
-              className=" hover:rounded-full  px-3 py-1 pl-6 text-red-500 text-2xl"
+              className=" hover:rounded-full  px-3 py-1 pl-6 text-slate-500 text-2xl"
               to="/login"
             >
               Se Connecter
