@@ -33,14 +33,14 @@ const Contact = () => {
           <p className="text-gray-500">
             Savoir plus sur nos offres de recrutements
           </p>
-          <div className="flex justify-between gap-4 m-4 p-3">
-          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/offre"} className="border border-orange-400 rounded-t-full px-8 py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
+          <div className="flex gap-2">
+          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/offre"} className="border border-orange-400 rounded-e-3xl py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
           Nos offres
           </NavLink>
-          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/offre-etudiant"}  className="border border-orange-400 rounded-t-full px-8 py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
+          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/offre-etudiant"}  className="border border-orange-400 rounded-e-3xl py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
           Offres étudiants
           </NavLink>
-          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/panneau-solaire-immobilier"}  className="border border-orange-400 rounded-t-full px-8 py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
+          <NavLink onClick={()=>window.scrollTo({top:'5px', behavior:"smooth"})} to={"/panneau-solaire-immobilier"}  className="border border-orange-400  rounded-e-3xl py-4 hover:bg-orange-700 hover:text-white duration-500 uppercase">
           Panneau Solaire
           </NavLink>
           </div>
