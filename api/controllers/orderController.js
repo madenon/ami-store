@@ -55,7 +55,7 @@ const placeOrderStripe = async (req, res) => {
         product_data: {
           name: item.productName,
         },
-        unit_amount: item.price * 100,
+        unit_amount: (item.price *6.56),
       },
       quantity: item.quantity,
     }));
@@ -65,7 +65,7 @@ const placeOrderStripe = async (req, res) => {
         product_data: {
           name: "Frais de livraison",
         },
-        unit_amount: deliveryCharges * 100,
+        unit_amount: deliveryCharges*6.56 ,
       },
       quantity: 1,
     });

@@ -9,7 +9,7 @@ import Login from "./Login";
 
 const PlaceOrder = () => {
   const { navigate,backendUrl,token,cartItems, setCartItems,getCartAmount,delivery_fee,products } = useContext(ShopContext);
-
+console.log("token", token.email)
   const [method, setMethod] = useState("cod");
   const [formData, setFormData] = useState({
     firstName: "",
