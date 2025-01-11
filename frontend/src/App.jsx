@@ -24,6 +24,7 @@ import Verify from "./pages/Verify";
 import BannerPrduct from "./components/BannerPrduct";
 import Etudiant from "./pages/Etudiant";
 import Offres from "./pages/Offres";
+import PanneauxSolaire from "./pages/PanneauxSolaire";
 
 const App = () => {
 
